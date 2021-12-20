@@ -1,0 +1,184 @@
+{%  extends 'app/main.html' %}
+
+{% block title %} PI Sub Model  {% endblock %}
+{% block content %}
+
+
+<div class="container-fluid px-lg-4">
+    <div class='row'>
+        <div class="col-md-12 mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <strong>PI - Model Details</strong>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">{{pimodel.model_name}}</h5>
+                  <h4 class="card-subtitle">{{pisubmodel.sub_model_name}}</h4>
+                  <p class="card-text">{{pimodel.description}}</p>
+                  <p class="card-text">
+                                        <strong>Insourcing ? : </strong> {{pimodel.insourcing_or_not}} &emsp;&emsp;
+                                        <strong>Insourcing Code : </strong> {{pimodel.insourcing_code}}</p>
+                <!-- <a href="#" class="btn btn-primary pull-right">Create New Sub-Rule</a> -->
+                <p class="card-text"><strong>Sub Model Description : </strong> {{pisubmodel.sub_model_description}}</p>
+                <p class="card-text"> <strong>Code :</strong> <br> {{pisubmodel.code}}</p>
+                </div>
+    </div>
+    <div class='row'>
+                <div class="col-md-10">
+
+                </div>
+                <div class="col-md-2">
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class='row'>
+        <div class="col-md-4 mt-2">
+        </div>
+        <div class="col-md-4 mt-2">
+            <div class="card">
+                <div class="card-body">
+                    <!-- title -->
+                    <!-- <div class="d-md-flex align-items-center"> -->
+                        <div>
+                            <h2 class="card-title text-left text-lg-center ">Opportunity Sizing</h2>
+                            <!-- <h5 class="card-subtitle">Overview of Opportunity Sizing</h5> -->
+                            <div class="font-weight-bold text-lg-center display-3 text-info"> $30M/year </div>
+
+                        </div>
+                        
+                    <!-- </div> -->
+                    <!-- title -->
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-2">
+  
+        </div>
+    </div>
+</div>
+
+    <div class='row'>
+        <div class="col-md-4 mt-2">
+            <div class="card">
+                <div class="card-body">
+                    <!-- title -->
+                    <div class="d-md-flex align-items-center">
+                        <div>
+                            <h4 class="card-title">Funding Type Wise Results</h4>
+                            <h5 class="card-subtitle">Overview of Funding Type Wise Results</h5>
+                        </div>
+                        <div class="ml-auto">
+                            <div class="dl">
+
+                                <!-- <select class="custom-select">
+                                    <option value="0" selected="">Monthly</option>
+                                    <option value="1">Daily</option>
+                                    <option value="2">Weekly</option>
+                                    <option value="3">Yearly</option>
+                                </select> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- title -->
+                </div>
+                <div class="mx-3">
+                    <table class="displayTableNoCol table table-sm" id='myTable'>
+                        <thead class='thead-light'>
+                            <tr>
+                                <th>State</th>
+                                <th>Total Billed</th>
+                                <th>Total Paid</th>                         
+                            </tr>
+                        </thead>
+                        <tbody>
+    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-2">
+            <div class="card">
+                <div class="card-body">
+                    <!-- title -->
+                    <div class="d-md-flex align-items-center">
+                        <div>
+                            <h4 class="card-title">State Wise Results</h4>
+                            <h5 class="card-subtitle">Overview of State Wise Results</h5>
+                        </div>
+                        <div class="ml-auto">
+                            <div class="dl">
+
+                                <!-- <select class="custom-select">
+                                    <option value="0" selected="">Monthly</option>
+                                    <option value="1">Daily</option>
+                                    <option value="2">Weekly</option>
+                                    <option value="3">Yearly</option>
+                                </select> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- title -->
+                </div>
+                <div class="mx-3">
+                    <table class="displayTableNoCol table table-sm" id='myTable'>
+                        <thead class='thead-light'>
+                            <tr>
+                                <th>State</th>
+                                <th>Total Billed</th>
+                                <th>Total Paid</th>                         
+                            </tr>
+                        </thead>
+                        <tbody>
+    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-2">
+            <div class="card">
+                <div class="card-body">
+                    <!-- title -->
+                    <div class="d-md-flex align-items-center">
+                        <div>
+                            <h4 class="card-title">Claim Type Wise Results</h4>
+                            <h5 class="card-subtitle">Overview of Claim Type Wise Results</h5>
+                        </div>
+                        <div class="ml-auto">
+                            <div class="dl">
+
+                                <!-- <select class="custom-select">
+                                    <option value="0" selected="">Monthly</option>
+                                    <option value="1">Daily</option>
+                                    <option value="2">Weekly</option>
+                                    <option value="3">Yearly</option>
+                                </select> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- title -->
+                </div>
+                <div class="mx-3">
+                    <table class="displayTableNoCol table table-sm" id='myTable'>
+                        <thead class='thead-light'>
+                            <tr>
+                                <th>State</th>
+                                <th>Total Billed</th>
+                                <th>Total Paid</th>                         
+                            </tr>
+                        </thead>
+                        <tbody>
+    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

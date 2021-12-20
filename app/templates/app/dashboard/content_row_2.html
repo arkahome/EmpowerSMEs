@@ -1,0 +1,109 @@
+<!-- column -->
+<div class='row'>
+    <div class="col-md-6 mt-4">
+        <div class="card">
+            <div class="card-body">
+                <!-- title -->
+                <div class="d-md-flex align-items-center">
+                    <div>
+                        <h4 class="card-title">Top Deployed Models</h4>
+                        <h5 class="card-subtitle">Overview of Top Deployed Models</h5>
+                    </div>
+                    <div class="ml-auto">
+                        <div class="dl">
+                            <!-- <select class="custom-select">
+                                <option value="0" selected="">Monthly</option>
+                                <option value="1">Daily</option>
+                                <option value="2">Weekly</option>
+                                <option value="3">Yearly</option>
+                            </select> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- title -->
+            </div>
+            <div class="mx-3">
+                <table class="displayTable table table-sm" id='myTable'>
+                    <thead class='thead-light'>
+                        <tr>
+                            <th>Model Name</th>
+                            <th>Description</th>
+                            <th>Insourcing?</th>
+                            <th>Insourcing Code</th>
+                            <th>Deployed On</th>
+                            <th>Total Savings Deployed</th>
+                            <th>Open</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                             <td>{{order.date_placed}}</td>
+                            <td>{{order.destination}}</td>
+                            <td>{{order.status}}</td>
+                            <td><a class="btn btn-sm btn-info" href="#">Update</a></td>
+
+                            <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mt-4">
+        <div class="card">
+            <div class="card-body">
+                <!-- title -->
+                <div class="d-md-flex align-items-center">
+                    <div>
+                        <h4 class="card-title">Latest Explored Models</h4>
+                        <h5 class="card-subtitle">Overview of Latest Explored Models</h5>
+                    </div>
+                    <div class="ml-auto">
+                        <div class="dl">
+                            <select class="custom-select">
+                                <option value="0" selected="">Explored</option>
+                                <option value="1">Deployed</option>
+                                <option value="2">Insourced</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!-- title -->
+                <div class="mx-3">
+                    <table class="displayTable table table-sm" id='myTable'>
+                        <thead class='thead-light'>
+                            <tr>
+                                <th>Model Name</th>
+                                <th>Description</th>
+                                <th>Insourcing Code</th>
+                                <th>Opportunity Size</th>
+                                <th>Open</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody>
+                            <!-- ##{% for order in orders %}
+                            <tr>
+                                 <td>{{order.date_placed}}</td>
+                                <td>{{order.destination}}</td>
+                                <td>{{order.status}}</td>
+                                <td><a class="btn btn-sm btn-info" href="#">Update</a></td>
+    
+                                <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td>
+    
+                            </tr>
+    
+                            ##{% endfor %} -->
+    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>

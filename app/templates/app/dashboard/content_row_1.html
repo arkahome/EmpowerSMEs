@@ -1,0 +1,115 @@
+<!-- column -->
+<div class='row'>
+    <div class="col-md-6 mt-4">
+        <div class="card">
+            <div class="card-body">
+                <!-- title -->
+                <div class="d-md-flex align-items-center">
+                    <div>
+                        <h4 class="card-title">Top Explored Models</h4>
+                        <h5 class="card-subtitle">Overview of Top Explored Models</h5>
+                    </div>
+                    <div class="ml-auto">
+                        <div class="dl">
+                            <a class="btn btn-sm btn-secondary" href="{% url 'create_PIModel' %}">Create New Model</a>
+                            <!-- <select class="custom-select">
+                                <option value="0" selected="">Monthly</option>
+                                <option value="1">Daily</option>
+                                <option value="2">Weekly</option>
+                                <option value="3">Yearly</option>
+                            </select> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- title -->
+                <div class="mx-3">
+                    <table class="displayTable table table-sm" id='myTable'>
+                        <thead class='thead-light'>
+                            <tr>
+                                <th>Model Name</th>
+                                <th>Description</th>
+                                <th>Insourcing?</th>
+                                <th>Insourcing Code</th>
+                                <th>Opportunity Size</th>
+                                <th>Open</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody>
+                                {% for mod in pimodel %}
+                                <tr>
+                                    <td>{{mod.model_name}}</td>
+                                    <td>{{mod.description}}</td>
+                                    <td>{{mod.insourcing_or_not}}</td>
+                                    <td>{{mod.insourcing_code}}</td>
+                                    <td>{{mod.opportunity_size}}</td>
+                                    <td><a class="btn btn-sm btn-info" href="{% url 'show_PISubModel' model_pk=mod.model_pk %}">Open</a></td>
+        
+                                    <!-- <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td> -->
+    
+                                </tr>
+                                {% endfor %}
+    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mt-4">
+        <div class="card">
+            <div class="card-body">
+                <!-- title -->
+                <div class="d-md-flex align-items-center">
+                    <div>
+                        <h4 class="card-title">Top Insourced Models</h4>
+                        <h5 class="card-subtitle">Overview of Top Insourced Models</h5>
+                    </div>
+                    <div class="ml-auto">
+                        <div class="dl">
+                            <a class="btn btn-sm btn-secondary" href="{% url 'create_PIModel' %}">Create New Model</a>
+                            <!-- <select class="custom-select">
+                                <option value="0" selected="">Monthly</option>
+                                <option value="1">Daily</option>
+                                <option value="2">Weekly</option>
+                                <option value="3">Yearly</option>
+                            </select> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- title -->
+                <div class="mx-3">
+                    <table class="displayTable table table-sm" id='myTable'>
+                        <thead class='thead-light'>
+                            <tr>
+                                <th>Model Name</th>
+                                <th>Description</th>
+                                <th>Insourcing Code</th>
+                                <th>Opportunity Size</th>
+                                <th>Open</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody>
+                            {% for mod in pimodel %}
+                            <tr>
+                                 <td>{{mod.model_name}}</td>
+                                <td>{{mod.description}}</td>
+                                <td>{{mod.insourcing_code}}</td>
+                                <td>{{mod.opportunity_size}}</td>
+                                <td><a class="btn btn-sm btn-info" href="#">Open</a></td>
+    
+                                <!-- <td><a class="btn btn-sm btn-danger" href="#">Delete</a></td> -->
+    
+                            </tr>
+    
+                            {% endfor %}
+    
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

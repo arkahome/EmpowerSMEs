@@ -1,0 +1,40 @@
+{% extends 'app/main.html' %}
+{% block title %} Create PI Model {% endblock %}
+
+{% block content %}
+
+<div class="container-fluid px-lg-4 mt-2">
+    <h1 class="h3 mb-2  text-center">Create PI Model</h1>
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-0"></div>
+        <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="card card-body">
+
+                <form action="" method="POST">
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                    <div class="row mt-1 mb-1">
+                        
+                        <div class="col-md-6">
+                            {{field.label_tag }}
+                        </div>
+                        <div class="col-md-6">
+                            {{field}}
+                        </div>
+                    </div>
+                    <!-- <hr> -->
+                    {% endfor %}
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" name="Submit" class="btn btn-primary mx-auto"> Submit </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-0"></div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% load static %}
+
+
+<head>
+    <!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico"> -->
+
+    <title>Login</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+    <link href="{% static '/css/signin.css' %}" rel="stylesheet">
+</head>
+
+<body class="text-center vsc-initialized">
+    <div class="card h-90" style="width:350px">
+        <form class="form-signin" method="POST" action="">
+            {% csrf_token %}
+            <img class="img-fluid mb-4" , src="{% static 'images/logo.png' %}" style="height:60px">
+            <!-- <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+            <h1 class="h3 mb-3 font-weight-normal">Please Register</h1>
+            <label for="inputUsername" class="sr-only">Username</label>{{form.username}}
+            <!-- <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="">{{form.username}}</input> -->
+            <label for="inputEmail" class="sr-only">Email address</label>{{form.email}}
+            <!-- <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""> -->
+            <label for="inputPassword" class="sr-only">Password</label>{{form.password1}}
+            <!-- <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" autofocus=""> -->
+            <label for="inputConfirmPassword" class="sr-only">Confirm Password</label>{{form.password2}}
+            <!-- <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required="" autofocus=""> -->
+
+            <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">Register</button>
+            <div>
+                {% if form.errors %}
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">×</button> {% for field in form %} {% if field.errors %}
+                    <li>{{ field.label }}: {{ field.errors|striptags }}</li>
+                    {% endif %} {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    Already have an account? <a href="{% url 'login' %}" class="ml-2">Sign In</a>
+                </div>
+
+            </div>
+            <p class="mt-5 mb-3 text-muted">© 2019-2020</p>
+        </form>
+    </div>
+
+</body>
+
+</html>
