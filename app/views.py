@@ -135,12 +135,13 @@ def show_PISubModel(request, model_pk):
 
 def update_PISubModel(request, sub_model_pk):
     mod = PISubModel.objects.get(sub_model_pk=sub_model_pk)
+    model_pk = PISubModel.objects.filter(sub_model_pk=sub_model_pk).values_list('model_pk_id', flat=True).first()
     form = PISubModelForm(instance=mod)
     if request.method == 'POST':
         form = PISubModelForm(request.POST, instance=mod)
         if form.is_valid():
             form.save()
-            return redirect(f"/pisubmodel/show/{form.cleaned_data.get('model_pk_id')}")
+            return redirect(f"/pisubmodel/show/{model_pk}")
 
     context = {'form':form}
     return render(request, 'app/content/PISubModel/update_PISubModel.html', context)
