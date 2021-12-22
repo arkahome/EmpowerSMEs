@@ -29,8 +29,9 @@ def home(request):
     context = {
         'total_models_explored' : pimodel.count(),
         'total_deployed' : 0,
-        'total_model_insourced' : 2,
+        'total_model_insourced' : pimodel.filter(insourcing_or_not='Yes').count(),
         'pimodel' : pimodel,
+        'pimodel_insourced' : pimodel.filter(insourcing_or_not='Yes')
     }
     return render(request, 'app/dashboard.html',context)
     # return HttpResponse('Hello World.')
@@ -153,8 +154,22 @@ def open_PISubModel(request, sub_model_pk):
     pisubmodel = PISubModel.objects.filter(sub_model_pk=sub_model_pk)
     pimodel = PIModel.objects.filter(model_pk=pisubmodel.first().model_pk_id)
     context = {'pisubmodel':pisubmodel.first(), 'pimodel' : pimodel.first()}
-    return render(request, 'app/content/PISubModel/open_PISubModel.html', context)
+    if pimodel.values_list('insourcing_or_not', flat=True).first() == 'Yes':
+        return render(request, 'app/content/PISubModel/insourcing_open_PISubModel.html', context)
+    else:
+        return render(request, 'app/content/PISubModel/open_PISubModel.html', context)
 
+import os
+
+def generateExcel(request):
+    path = './abc.xlsx' # this should live elsewhere, definitely
+    if os.path.exists(path):
+        with open(path, "rb") as excel:
+            data = excel.read()
+        id = 'my_file'
+        response = HttpResponse(data,content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        response['Content-Disposition'] = 'attachment; filename=%s_Report.xlsx' % id
+        return response
 
 # Rest Framework Views
 

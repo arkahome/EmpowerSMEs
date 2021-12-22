@@ -33,5 +33,7 @@ urlpatterns = [
     path('pisubmodel/show/<str:model_pk>', views.show_PISubModel, name="show_PISubModel"), 
     path('pisubmodel/open/<str:sub_model_pk>', views.open_PISubModel, name="open_PISubModel"), 
 
+    path('download_excel', views.generateExcel, name="download_excel"),
+
     # path('api/',include(router.urls)),
 ]
