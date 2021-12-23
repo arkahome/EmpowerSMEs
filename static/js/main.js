@@ -102,6 +102,28 @@ $(document).ready( function () {
 });
 } );
 
+$(document).ready( function () {
+    $('table.displayTableShort').DataTable({
+        // select: true,
+        // lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        // serverSide: true,
+        deferRender: true,
+        scrollY:        '15vh',
+        scrollCollapse: false,
+        // paging:         true,
+        dom: 'Blfrtip',
+        searching: false, paging: false, 
+        // columnDefs: [
+        //     {
+        //         targets: 1,
+        //         className: 'noVis'
+        //     }
+        // ],
+        buttons: [
+        ]
+
+});
+} );
 
 
 $(document).ready( function () {
